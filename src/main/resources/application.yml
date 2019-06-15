@@ -1,0 +1,29 @@
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:starterjwt
+    driver-class-name: org.h2.Driver
+  jpa:
+    properties:
+      show_sql: true
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+server:
+  port: ${PORT:8080}
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type: TRACE
+
+security:
+  jwt:
+    token:
+      base64-secret-key: nSU1A70Dk3AlJbw69LyKDtFLWhcAEVMsBeFmDDjDjzkBCbQWcKEa86BudY56IrWyYAegPAZNwNislqlrTdxiuw==
+      expire-length: 1800 # seconds
+      issuer: spring-boot-starter-jwt
